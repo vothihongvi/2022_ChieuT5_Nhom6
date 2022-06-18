@@ -31,6 +31,7 @@ function Validator(options) {
 
   //xử lý kiểm tra hợp lệ khi blur, clickLogin
   if (formLogin) {
+    // CLICK LOGIN
     formLogin.onsubmit = (e) => {
       e.preventDefault();
 
@@ -47,7 +48,7 @@ function Validator(options) {
 
       if (isFormValid) {
         if (typeof options.onSubmit === "function") {
-          var enableInput = formLogin.querySelectorAll('[name]');
+          var enableInput = formLogin.querySelectorAll("[name]");
           var formValues = Array.from(enableInput).reduce((values, input) => {
             return (values[input.name] = input.value) && values;
           }, {});
