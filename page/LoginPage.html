@@ -1,73 +1,90 @@
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-
-  <!-- Basic Page Needs
+  <head>
+    <!-- Basic Page Needs
   ================================================== -->
-  <meta charset="utf-8">
-  <title>Aviato | E-commerce template</title>
+    <meta charset="utf-8" />
+    <title>Aviato | E-commerce template</title>
 
-  <!-- Mobile Specific Metas
+    <!-- Mobile Specific Metas
   ================================================== -->
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="description" content="Construction Html5 Template">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <meta name="author" content="Themefisher">
-  <meta name="generator" content="Themefisher Constra HTML Template v1.0">
-  
-  <!-- Favicon -->
-  <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
-  
-  <!-- Themefisher Icon font -->
-  <link rel="stylesheet" href="../plugins/themefisher-font/style.css">
-  <!-- bootstrap.min css -->
-  <link rel="stylesheet" href="../plugins/bootstrap/css/bootstrap.min.css">
-  
-  <!-- Animate css -->
-  <link rel="stylesheet" href="../plugins/animate/animate.css">
-  <!-- Slick Carousel -->
-  <link rel="stylesheet" href="../plugins/slick/slick.css">
-  <link rel="stylesheet" href="../plugins/slick/slick-theme.css">
-  
-  <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="../css/style.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="Construction Html5 Template" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=5.0"
+    />
+    <meta name="author" content="Themefisher" />
+    <meta name="generator" content="Themefisher Constra HTML Template v1.0" />
 
-</head>
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
 
-<body id="body">
+    <!-- Themefisher Icon font -->
+    <link rel="stylesheet" href="../plugins/themefisher-font/style.css" />
+    <!-- bootstrap.min css -->
+    <link rel="stylesheet" href="../plugins/bootstrap/css/bootstrap.min.css" />
 
-<section class="signin-page account">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <div class="block text-center">
-          <a class="logo" href="index.html">
-            <img src="images/logo.png" alt="">
-          </a>
-          <h2 class="text-center">Welcome Back</h2>
-          <form class="text-left clearfix" action="index.html" >
-            <div class="form-group">
-              <input type="email" class="form-control"  placeholder="Email">
+    <!-- Animate css -->
+    <link rel="stylesheet" href="../plugins/animate/animate.css" />
+    <!-- Slick Carousel -->
+    <link rel="stylesheet" href="../plugins/slick/slick.css" />
+    <link rel="stylesheet" href="../plugins/slick/slick-theme.css" />
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+
+  <body id="body">
+    <section class="signin-page account">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3">
+            <div class="block text-center">
+              <a class="logo" href="index.html">
+                <img src="images/logo.png" alt="" />
+              </a>
+              <h2 class="text-center">Welcome Back</h2>
+              <form id = "form-login" class="text-left clearfix">
+                <div class="form-group">
+                  <input
+                    id="phone"
+                    type="text"
+                    name="phoneNumber"
+                    class="form-control"
+                    placeholder="Phone number"
+                  />
+                  <small class="form-message" style="color: red ;" ></small>
+                </div>
+                <div class="form-group">
+                  <input
+                    id="password"
+                    name="pass"
+                    type="password"
+                    class="form-control"
+                    placeholder="Password"
+                  />
+                  <small class="form-message" style="color: red ;"></small>
+                </div>
+                <div id="btnLogin" class="text-center" >
+                  <button type="submit" class="btn btn-main text-center">
+                    Login
+                  </button>
+                </div>
+              </form>
+              <p class="mt-20">
+                New in this site ?<a href="signin.html"> Create New Account</a>
+              </p>
             </div>
-            <div class="form-group">
-              <input type="password" class="form-control" placeholder="Password">
-            </div>
-            <div class="text-center">
-              <button type="submit" class="btn btn-main text-center" >Login</button>
-            </div>
-          </form>
-          <p class="mt-20">New in this site ?<a href="signin.html"> Create New Account</a></p>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
     <!-- 
     Essential Scripts
     =====================================-->
-    
+
     <!-- Main jQuery -->
     <script src="../plugins/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap 3.1 -->
@@ -92,8 +109,80 @@
     <!-- Main Js File -->
     <script src="../js/script.js"></script>
     <script src="../js/login.js"></script>
-    
+    <script>
+      Validator({
+        form: '#form-login',
+        errorSelector : '.form-message',
+        rules : [
+          Validator.isRequired("#phone"),
+          Validator.isRequired('#password'),
+          Validator.minLength("#password", 6),
+          Validator.isPhone('#phone'),
+        ],
+        onSubmit : function(data){
+          console.log(data)
+        }
+
+      })
+    </script>
+    <!-- <script>
+      var phoneNumber = document.getElementById("phone");
+      var password = document.getElementById("password");
+      var btnLogin = document.getElementById("btnLogin");
+      var notify = document.querySelector("small");
+
+      var form = document.querySelector("form");
+
+      // hiển thị thông báo
+      function showError(input, message) {
+        notify.innerHTML = message;
+        input.style.border == "1px solid red";
+      }
+
+      //kiểm tra dữ liệu để trống
+      function checkEmptyInput(listInput) {
+        let isEmptyError = false;
+        listInput.forEach((input) => {
+           let inp = input.value.trim();
 
 
+          if (!inp) {
+            isEmptyError = true;
+            showError(input, "Không được để trống");
+          }
+        });
+        return isEmptyError;
+      }
+
+      // kiểm tra sđt hợp lệ
+      function checkPhoneNumber(phone) {
+        var isPhoneNumber = true;
+        var phoneRegrex = /^\+?[1-9][0-9]{7,14}$/;
+
+        if (!phoneRegrex.test(phone.value.trim())) {
+          isPhoneNumber = false;
+          showError(phone, "Số điện thoại không hợp lệ");
+        }
+      }
+
+      // kiểm tra mật khẩu hợp lệ
+      function checkPassword(pass) {
+        var isPassValidate = true;
+
+        if (pass.value.length < 6) {
+          isPassValidate = false;
+          showError(phone, "Mật khẩu từ 6 kí tự trở lên");
+        }
+        return isPassValidate;
+      }
+
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        
+        let isEmptyError = checkEmptyInput([phoneNumber, password]);
+        let isPhoneNumber = checkPhoneNumber(phoneNumber);
+        let isPassValidate = checkPassword(password);
+      })
+    </script> -->
   </body>
-  </html>
+</html>
