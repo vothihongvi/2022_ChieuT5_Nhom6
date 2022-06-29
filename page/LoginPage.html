@@ -115,6 +115,7 @@
         form: "#form-login",
         errorSelector: ".form-message",
         rules: [
+          //5.KIỂM TRA ĐỊNH DẠNG CỦA DỮ LIỆU
           Validator.isRequired("#phone"),
           Validator.isRequired("#password"),
           Validator.minLength("#password", 6),
@@ -125,7 +126,7 @@
           var objUserData = [
             {
               id: 1,
-              sdt: "0371234567",
+              sdt: "0374393553",
               password: "123456",
             },
             {
@@ -134,15 +135,18 @@
               password: "123456",
             },
           ];
+
+          //8. HỆ THỐNG KIỂM TRA TÀI KHOẢN TỒN TẠI HAY CHƯA
           //xử lý dữ liệu
           objUserData.every((user) => {
+            //10. TÀI KHOẢN TỒN TẠI -> CHUYỂN HƯỚNG SANG TRANG CHỦ
             if (user.sdt === data.phoneNumber && user.password === data.pass) {
-              // alert("Đăng nhập thành công");
-              document.write("Đang chuyển hướng đến trang chủ...");
-
+              document.write("Đang chuyển hướng sang trang chủ...")
               setTimeout(() => {
                 window.location = "./HomePage.html";
-              }, 3000);
+              }, 1000);
+
+              //9. TÀI KHOẢN KHÔNG TỒN TẠI, HIỆN THÔNG BÁO NHẬP LẠI
             } else {
               alert("Thông tin sai vui lòng nhập lại");
             }

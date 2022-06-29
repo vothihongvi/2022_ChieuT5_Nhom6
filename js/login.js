@@ -1,5 +1,7 @@
 function Validator(options) {
   var selectorRules = {};
+
+      // 6. NẾU CÓ LỖI VALIDATE THÌ BÁO ĐỎ TẠI TRƯỜNG ĐÓ
   //hàm kiểm tra và show message
   function validate(inputElement, rule) {
     var errorElement = inputElement.parentElement.querySelector(
@@ -15,7 +17,6 @@ function Validator(options) {
       errorMessage = rules[i](inputElement.value);
       if (errorMessage) break;
     }
-
     if (errorMessage) {
       errorElement.innerText = errorMessage;
       inputElement.style.borderColor = "red";
@@ -26,6 +27,8 @@ function Validator(options) {
 
     return !errorMessage;
   }
+
+  //7. DỮ LIỆU HỢP LỆ THÌ XỬ LÝ FORM LOGIN (GỬI DỮ LIỆU LÊN ĐI)
   // lấy element của form cần validate
   var formLogin = document.querySelector(options.form);
 
@@ -88,19 +91,19 @@ Validator.isRequired = function (selector) {
     },
   };
 };
-
+//sdt là các kí tự số 0-9
 Validator.isPhone = function (selector) {
   return {
     selector: selector,
     test: function (phoneNumber) {
-      var phoneRegrex = /(84|0[3|5|7|8|9])+([0-9]{8})\b/;
+      var phoneRegrex = /([0-9])\b/;
       return phoneRegrex.test(phoneNumber.trim())
         ? undefined
         : "Sdt không hợp lệ";
     },
   };
 };
-
+// chiều dài password tối thiểu minLength kí tự 
 Validator.minLength = function (selector, minLength) {
   return {
     selector: selector,
