@@ -1,0 +1,88 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.5;
+    background-color: lightgray;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+submit{
+    padding: 0.5em 2em;
+    margin-right: 1em;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: inherit;
+}
+button{
+    padding: 0.5em 2em;
+    margin-right: 1em;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: inherit;
+}
+
+.container{
+    width: max-content;
+    margin: auto;
+    margin-top: 20vh;
+
+    font-weight: bold;
+    background-color: white;
+    padding: 3em 5em;
+}
+    .row{
+        padding: 1em 0;
+    }
+        .row label{
+            width: 70px;
+            display: inline-block;
+        }
+        .row input{
+            width: 300px;
+            padding: 0.5em;
+        }
+
+
+        .link_to_show{
+            display: flex;
+            justify-content: flex-end;
+        }
+        .row a{
+            text-transform: uppercase;
+            display: block;
+            width: fit-content;
+            padding: 0.5em 1em;
+            background-color: lightgray;
+        }
+        .row a:hover{
+            background-color: gray;
+            color: white    ;
+        }
+
+table{
+    border: 1px solid black;
+}
+    td, th{
+        border: 1px solid black;
+        padding: 0.5em 1em;
+
+        width: 200px;
+    }
+    .btn{
+        display: flex;
+        justify-content: space-between;
+    }
+    .btn a{
+        padding: 0.5em 1em;
+        display: inline-block;
+        background-color: lightgray;
+    }
+    .btn a:hover{
+        background-color: gray;
+        color: white;
+    }
