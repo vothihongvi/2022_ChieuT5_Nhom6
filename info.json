@@ -1,0 +1,12 @@
+[
+{"type":"header","version":"5.1.1","comment":"Export to JSON plugin for PHPMyAdmin"},
+{"type":"database","name":"register"},
+{"type":"table","name":"info","database":"register","data":
+[
+{"user":"ghjgj","phone":"868678","pass":"hgjhghj"},
+{"user":"weqwe","phone":"312312","pass":"dasdasd"},
+{"user":"admin","phone":"0362973242","pass":"admin"},
+{"user":"admin2","phone":"2321321312","pass":"1234"}
+]
+}
+]
